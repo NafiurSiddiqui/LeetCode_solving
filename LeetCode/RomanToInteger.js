@@ -13,35 +13,30 @@ var romanToInt = function (s) {
 	};
 
 
-	//convert the input to the integer
-
-    // let newArr = [];
-	// const firstSubNumber = ['I','X', 'C'];
-	// const secondSubNumber = ['V', 'L', 'D', 'X','C','M'];
-
 	let newInput = s.split('');
 	let result = 0;
 
-	newInput.forEach((el, index) => {
-				console.log(el, index);
-				// console.log(`nextEl: ${romanSymbols[el + 1]}`);
-				console.log(romanSymbols[el]);
-				console.log(romanSymbols[newInput[index + 1]]);
-				console.log('-------');
+	//forEach
+	// newInput.forEach((el, index) => {
 
-				if (romanSymbols[el] < romanSymbols[newInput[index + 1]]) result -= romanSymbols[el];
-				else result += romanSymbols[el];
+	// 			if (romanSymbols[el] < romanSymbols[newInput[index + 1]]) result -= romanSymbols[el];
+	// 			else result += romanSymbols[el];
 
-				// result += romanSymbols[el]
-
-				// if(romanSymbols[el] )
-
-
-		});
+	// 	});
 	
+		//traditional loop	
+		for (let i = 0; i < newInput.length; i++){
+
+			let curInput = romanSymbols[newInput[i]];
+			let nextInput = romanSymbols[newInput[i + 1]];
+
+			curInput < nextInput ? result -= romanSymbols[newInput[i]]: result += romanSymbols[newInput[i]];
+
+
+		}
+
 		console.log(result);
 
-	
 };
 
 romanToInt('LVIII');
